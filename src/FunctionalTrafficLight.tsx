@@ -1,15 +1,17 @@
 import { useState } from "react";
+interface FunctionalTrafficLightProps {
+  colors: string[];
+}
 
+interface TrafficLightState {
+  index: number;
+}
 
-export const FunctionalTrafficLight = () => {
-
-  const colors = ["red", "yellow", "green"];
-
-  const [colorIndex, setColorIndex] = useState(0);
+export const FunctionalTrafficLight: React.FC<FunctionalTrafficLightProps> = ({ colors }) => {
+  const [colorIndex, setColorIndex] = useState<TrafficLightState>({ index: 0 });
 
   const nextColor = () => {
-    setColorIndex ((
-      colorIndex + 1) % colors.length);
+    setColorIndex((prevState) => ({ index: (prevState.index + 1) % colors.length }));
   };
 
   return (
@@ -20,7 +22,7 @@ export const FunctionalTrafficLight = () => {
         {colors.map((color, index) => (
             <div
               key={index}
-              className={`circle ${colorIndex === index ? color : "black"}`}
+              className={`circle ${colorIndex.index === index ? color : "black"}`}
             ></div>
           ))}
       </div>
