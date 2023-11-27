@@ -11,7 +11,7 @@ export const FunctionalTrafficLight: React.FC<FunctionalTrafficLightProps> = ({ 
   const [colorIndex, setColorIndex] = useState<TrafficLightState>({ index: 0 });
 
   const nextColor = () => {
-    setColorIndex((prevState) => ({ index: (prevState.index + 1) % colors.length }));
+    setColorIndex((prevState) => ({ index: (prevState.index - 1 + colors.length) % colors.length }));
   };
 
   return (

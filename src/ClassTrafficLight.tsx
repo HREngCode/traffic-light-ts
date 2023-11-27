@@ -18,7 +18,7 @@ export class ClassTrafficLight extends Component<TrafficLightProps, TrafficLight
 
   nextColor = () => {
     this.setState((prevState) => ({
-      currentColorIndex: (prevState.currentColorIndex + 1) % this.props.colors.length,
+      currentColorIndex: (prevState.currentColorIndex - 1 + this.props.colors.length) % this.props.colors.length,
     }));
   };
 
