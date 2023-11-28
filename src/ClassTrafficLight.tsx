@@ -1,30 +1,24 @@
 import { Component } from "react";
+import { colors } from "./App";
 
-interface TrafficLightProps {
-  colors: string[];
-}
 
 interface TrafficLightState {
   currentColorIndex: number;
 }
 
-export class ClassTrafficLight extends Component<TrafficLightProps, TrafficLightState> {
-
-// colors = ["red", "yellow", "green"]
+export class ClassTrafficLight extends Component<string, TrafficLightState> {
 
   state = {
     currentColorIndex: 0,
   };
 
   nextColor = () => {
-    this.setState((prevState) => ({
-      currentColorIndex: (prevState.currentColorIndex - 1 + this.props.colors.length) % this.props.colors.length,
-    }));
+    this.setState({currentColorIndex: (this.state.currentColorIndex - 1 + colors.length) % colors.length,
+    });
   };
 
   render() {
     const { currentColorIndex } = this.state;
-    const { colors } = this.props;
 
     return (
       <div className="traffic-light-box">

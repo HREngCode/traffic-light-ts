@@ -2,9 +2,9 @@ import "./App.css";
 import { ClassTrafficLight } from "./ClassTrafficLight";
 import { FunctionalTrafficLight } from "./FunctionalTrafficLight";
 
-function App() {
+export const colors = ["red", "yellow", "green"];
 
-  const colors = ["red", "yellow", "green"];
+function App() {
 
   return (
     <>
@@ -12,10 +12,10 @@ function App() {
         <h1>Traffic light App</h1>
         <div className="container">
           <div className="left">
-            <FunctionalTrafficLight colors={colors} />
+            <FunctionalTrafficLight />
           </div>
           <div className="right">
-            <ClassTrafficLight colors={colors}/>
+            <ClassTrafficLight />
           </div>
         </div>
       </main>
